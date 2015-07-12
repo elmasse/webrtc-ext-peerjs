@@ -61,7 +61,8 @@
      *      ]
      */
     "requires": [
-        "font-awesome"
+        "font-awesome",
+        "Smartc"
     ],
 
     /**
@@ -200,10 +201,6 @@
      *
      */
     "js": [
-        {
-            "path": "http://cdn.peerjs.com/0.3/peer.js",
-            "remote": true
-        },
         {
             "path": "app.js",
             "bundle": true

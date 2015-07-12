@@ -33,10 +33,12 @@ Ext.define('Smartc.RTC', {
 
 
         config = Ext.apply({
-            call: this.onProviderCall,
-            localstream: this.onProviderLocalStream,
-            remotestream: this.onProviderRemoteStream,
-            scope: this
+            listeners: {
+                call: this.onProviderCall,
+                localstream: this.onProviderLocalStream,
+                remotestream: this.onProviderRemoteStream,
+                scope: this
+            }
         }, config || {});
 
         type = 'rtc-provider.' + type;
@@ -71,7 +73,7 @@ Ext.define('Smartc.RTC', {
 
         navigator.getUserMedia({video: true, audio: true},
             function(stream) {
-                provider.answer(remote, stream);
+                provider.answer(call, stream);
             },
             function(err) {
               console.log('Failed to get local stream' ,err);
@@ -80,17 +82,14 @@ Ext.define('Smartc.RTC', {
     },
 
     onProviderCall: function (call) {
-console.log('fire call')
         this.fireEvent('call', call);
     },
 
     onProviderLocalStream: function (stream) {
-console.log('fire local')
         this.fireEvent('localstream', stream);
     },
 
     onProviderRemoteStream: function (stream) {
-console.log('fire remote')        
         this.fireEvent('remotestream', stream);
     }
 
