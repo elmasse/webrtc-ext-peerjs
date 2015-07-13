@@ -12,6 +12,11 @@ Ext.define('aRtc.view.main.PeerToPeer', {
 
     title: 'Peer to Peer Communication with WebRTC',
 
+    layout: {
+        type: 'vbox',
+        align: 'stretch'
+    },
+
     items: [
         {
             xtype: 'form',
@@ -70,16 +75,20 @@ Ext.define('aRtc.view.main.PeerToPeer', {
         },
         {
             xtype: 'panel',
-            layout: 'hbox',
+            layout: {
+                type: 'hbox',
+                align: 'stretch'
+            },
+            flex: 1,
             defaults: {flex: 1},
             items: [
                 {
                     itemId: 'localVideo',
-                    html:'<video autoplay>'
+                    html:'<video autoplay muted height="100%" width="100%">'
                 },
                 {
                     itemId: 'remoteVideo',
-                    html: '<video autoplay>'
+                    html: '<video autoplay height="100%" width="100%">'
                 }
 
             ]

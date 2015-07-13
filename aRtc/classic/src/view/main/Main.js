@@ -79,6 +79,7 @@ Ext.define('aRtc.view.main.Main', {
     items: [
         {
             title: 'Peer To Peer',
+            layout: 'fit',
             iconCls: 'fa-user',
             items: [
                 {
