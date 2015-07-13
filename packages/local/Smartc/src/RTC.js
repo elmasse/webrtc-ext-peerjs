@@ -59,6 +59,7 @@ Ext.define('Smartc.RTC', {
     
         navigator.getUserMedia({video: true, audio: true},
             function(stream) {
+                me.fireEvent('localstream', stream);
                 provider.makeCall(remote, stream);
             },
             function(err) {
@@ -73,6 +74,7 @@ Ext.define('Smartc.RTC', {
 
         navigator.getUserMedia({video: true, audio: true},
             function(stream) {
+                me.fireEvent('localstream', stream);
                 provider.answer(call, stream);
             },
             function(err) {

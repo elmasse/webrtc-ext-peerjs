@@ -41,8 +41,8 @@ Ext.define('Smartc.provider.Peer', {
 
         call = peer.call(remote, stream);
 
-        call.on('stream', function(localStream) {
-            me.fireEvent('localstream', localStream);
+        call.on('stream', function(remoteStream) {
+            me.fireEvent('remotestream', remoteStream);
         });
     },
 
