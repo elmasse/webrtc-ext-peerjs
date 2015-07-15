@@ -18,9 +18,10 @@ Ext.define('aRtc.view.main.PeerToPeerController', {
         me.rtc = Ext.create('Smartc.RTC', {
             provider: {
                 type: 'peerjs',
-                host: 'localhost',
-                port: 9000,
-                path: '/webrtc'
+                key: '11nha49rnyu8fr'
+                // host: 'localhost',
+                // port: 9000,
+                // path: '/webrtc'
             },
             listeners: {
                 call: me.doRTCAnswer,
@@ -51,7 +52,6 @@ Ext.define('aRtc.view.main.PeerToPeerController', {
         var remote = me.getView().down('textfield[name=remote]').getValue();
         
         me.rtc.makeCall(remote);
-
     },
 
     doPlayLocalStream: function(stream) {

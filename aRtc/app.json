@@ -62,6 +62,7 @@
      */
     "requires": [
         "font-awesome",
+        "font-pictos",
         "Smartc"
     ],
 

@@ -221,9 +221,12 @@
      */
     "js":[
         {
-            "path": "http://cdn.peerjs.com/0.3/peer.js",
-            "remote": true
+            "path": "./resources/peer.min.js"
         }
+        // {
+        //     "path": "http://cdn.peerjs.com/0.3/peer.js",
+        //     "remote": true
+        // }
     ],
     /**
      * Packages can require other packages in the same way that applications can require

@@ -3,6 +3,8 @@ Ext.define('Smartc.provider.Peer', {
     alias: 'rtc-provider.peerjs',
 
     config: {
+        key: undefined, 
+
         host: undefined,
 
         port: undefined,
@@ -14,14 +16,27 @@ Ext.define('Smartc.provider.Peer', {
 
     connect: function(options) {
         var name = options.username,
-            host = options.host || this.getHost(),
-            port = options.port || this.getPort(),
-            path = options.path || this.getPath();
+            peerConfig = this.getPeerConfig();
 
-        this.peer = new Peer(name, {host: host, port: port, path: path});
-         // me.peer = new Peer(name, {host: 'localhost', port: 9000, path: '/webrtc'});
+        this.peer = new Peer(name, peerConfig);
         this.bindPeerEvents();
 
+    },
+
+    getPeerConfig: function() {
+        var me = this,
+            key = me.getKey();
+
+        if (key) {
+            return { key: key };    
+        }
+
+        return {
+            host: me.getHost(),
+            port: me.getPort(),
+            path: me.getPath()
+        }
+        
     },
 
 
