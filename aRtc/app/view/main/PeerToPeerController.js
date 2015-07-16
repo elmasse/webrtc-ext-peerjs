@@ -18,10 +18,10 @@ Ext.define('aRtc.view.main.PeerToPeerController', {
         me.rtc = Ext.create('Smartc.RTC', {
             provider: {
                 type: 'peerjs',
-                key: '11nha49rnyu8fr'
-                // host: 'localhost',
-                // port: 9000,
-                // path: '/webrtc'
+                // key: '11nha49rnyu8fr'
+                host: 'localhost',
+                port: 9000,
+                path: '/peer'
             },
             listeners: {
                 call: me.doRTCAnswer,

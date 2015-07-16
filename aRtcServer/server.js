@@ -1,49 +1,22 @@
-var PeerServer = require('peer').PeerServer;
-var server = PeerServer({port: 9000, path: '/webrtc'});
+'use strict';
 
-// var static = require('node-static');
-// var http = require('http');
-// var file = new(static.Server)('../');
-// var app = http.createServer(function (req, res) {
-//   file.serve(req, res);
-// }).listen(2013);
+var express = require('express');
+var app = express();
 
-// var io = require('socket.io').listen(app);
-// io.sockets.on('connection', function (socket){
+var ExpressPeerServer = require('peer').ExpressPeerServer;
+// var opentok = require('./opentok');
 
-//     function log(){
-//         var array = [">>> Message from server: "];
-//       for (var i = 0; i < arguments.length; i++) {
-//         array.push(arguments[i]);
-//       }
-//         socket.emit('log', array);
-//     }
 
-//     socket.on('message', function (message) {
-//         log('Got message: ', message);
-//     // For a real app, should be room only (not broadcast)
-//         socket.broadcast.emit('message', message);
-//     });
+var server = app.listen(9000);
 
-//     socket.on('create or join', function (room) {
-//         var numClients = io.sockets.clients(room).length;
+var options = {
+    debug: true
+}
 
-//         log('Room ' + room + ' has ' + numClients + ' client(s)');
-//         log('Request to create or join room', room);
+app.use('/peer', ExpressPeerServer(server, options));
 
-//         if (numClients == 0){
-//             socket.join(room);
-//             socket.emit('created', room);
-//         } else if (numClients == 1) {
-//             io.sockets.in(room).emit('join', room);
-//             socket.join(room);
-//             socket.emit('joined', room);
-//         } else { // max two clients
-//             socket.emit('full', room);
-//         }
-//         socket.emit('emit(): client ' + socket.id + ' joined room ' + room);
-//         socket.broadcast.emit('broadcast(): client ' + socket.id + ' joined room ' + room);
+// app.use('/opentok', opentok) // wip
 
-//     });
+// var PeerServer = require('peer').PeerServer;
+// var server = PeerServer({port: 9000, path: '/webrtc'});
 
-// });

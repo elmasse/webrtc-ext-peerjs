@@ -9,7 +9,9 @@ Ext.define('Smartc.provider.OpenTok', {
         url: undefined
     },
 
-    connect: function(options) {},
+    connect: function(options) {
+        
+    },
 
     makeCall: function(remote, stream) {},
 

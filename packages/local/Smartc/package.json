@@ -222,6 +222,10 @@
     "js":[
         {
             "path": "./resources/peer.min.js"
+        },
+        {
+            "path": "http://static.opentok.com/v2/js/opentok.js",
+            "remote": true
         }
         // {
         //     "path": "http://cdn.peerjs.com/0.3/peer.js",
